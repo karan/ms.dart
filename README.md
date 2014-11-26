@@ -1,5 +1,7 @@
 # ms.dart: miliseconds conversion utility
 
+Port of [guille/ms.js](https://github.com/guille/ms.js).
+
 ## Install
 
 In your `pubspec.yaml` add:
