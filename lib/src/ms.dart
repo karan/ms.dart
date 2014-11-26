@@ -1,10 +1,10 @@
 part of ms;
 
-var s = 1000;
-var m = s * 60;
-var h = m * 60;
-var d = h * 24;
-var y = d * 365.25;
+const int s = 1000;
+const int m = s * 60;
+const int h = m * 60;
+const int d = h * 24;
+const int y = d * 365;
 
 /**
  * Parse or format the given [val]
@@ -98,17 +98,17 @@ String short(int ms) {
  */
 String long(int ms) {
 
-  String s = plural(ms, d, 'day');
-  if (s != '') return s;
+  String str = plural(ms, d, 'day');
+  if (str != '') return str;
 
-  s = plural(ms, h, 'hour');
-  if (s != '') return s;
+  str = plural(ms, h, 'hour');
+  if (str != '') return str;
 
-  s = plural(ms, m, 'minute');
-  if (s != '') return s;
+  str = plural(ms, m, 'minute');
+  if (str != '') return str;
 
-  s = plural(ms, s, 'second');
-  if (s != '') return s;
+  str = plural(ms, s, 'second');
+  if (str != '') return str;
 
   return ms.toString() + ' ms';
 }
