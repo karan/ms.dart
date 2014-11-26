@@ -1,2 +1,6 @@
 name: ms
-description: A pub package 
+version: 0.0.1
+author: Karan Goel <karan@goel.io>
+description: Tiny milisecond conversion utility.
+homepage: https://github.com/karan/ms.dart
+documentation: https://github.com/karan/ms.dart
