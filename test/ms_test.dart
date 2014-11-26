@@ -22,6 +22,14 @@ void main() {
   test('1.5H', 5400000);
   test('.5ms', .5);
 
+  test('53 milliseconds', 53);
+  test('17 msecs', 17);
+  test('1 sec', 1000);
+  test('1 min', 60000);
+  test('1 hr', 3600000);
+  test('2 days', 172800000);
+  test('1.5 hours', 5400000);
+
   print('-------------------');
   print('All tests complete.');
   print('-------------------');
