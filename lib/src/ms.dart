@@ -16,24 +16,25 @@ ms(val, [Map options]) {
     return parse(val);
   }
 
-//  if (options.long == true) {
-//    return long(val);
-//  } else {
-//    return short(val);
-//  }
+  if (options['long'] == true) {
+    return long(val);
+  } else {
+    return short(val);
+  }
 }
 
 
 /**
  * Parse [str] and return the milliseconds
  */
-int parse(String val) {
+num parse(String val) {
+  val = val.toLowerCase();
   RegExp tester = new RegExp(r'^((?:\d+)?\.?\d+) *(milliseconds?|msecs?|ms|seconds?|secs?|s|minutes?|mins?|m|hours?|hrs?|h|days?|d|years?|yrs?|y)?$');
   Iterable<Match> match = tester.allMatches(val);
 
   if (match.length == 0) return -1;
 
-  int n = int.parse(match.first.group(1));
+  double n = double.parse(match.first.group(1));
   String type = 'ms';
   if (match.first.group(2) != null) {
     type = match.first.group(2).toLowerCase();
@@ -45,29 +46,29 @@ int parse(String val) {
     case 'yrs':
     case 'yr':
     case 'y':
-      return n * y;
+      return (n * y).toInt();
     case 'days':
     case 'day':
     case 'd':
-      return n * d;
+      return (n * d).toInt();
     case 'hours':
     case 'hour':
     case 'hrs':
     case 'hr':
     case 'h':
-      return n * h;
+      return (n * h).toInt();
     case 'minutes':
     case 'minute':
     case 'mins':
     case 'min':
     case 'm':
-      return n * m;
+      return (n * m).toInt();
     case 'seconds':
     case 'second':
     case 'secs':
     case 'sec':
     case 's':
-      return n * s;
+      return (n * s).toInt();
     case 'milliseconds':
     case 'millisecond':
     case 'msecs':
