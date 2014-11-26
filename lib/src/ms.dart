@@ -78,3 +78,15 @@ int parse(String val) {
 
   return -1;
 }
+
+
+/**
+ * Short format for [ms]
+ */
+String short(ms) {
+  if (ms >= d) return (ms / d).round() + 'd';
+  if (ms >= h) return (ms / h).round() + 'h';
+  if (ms >= m) return (ms / m).round() + 'm';
+  if (ms >= s) return (ms / s).round() + 's';
+  return ms + 'ms';
+}
