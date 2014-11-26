@@ -1,5 +1,7 @@
 # ms.dart: miliseconds conversion utility
 
+[![Build Status](https://drone.io/github.com/karan/ms.dart/status.png)](https://drone.io/github.com/karan/ms.dart/latest)
+
 Port of [guille/ms.js](https://github.com/guille/ms.js).
 
 ## Install
