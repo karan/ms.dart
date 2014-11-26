@@ -11,6 +11,7 @@ void test(test_val, expected_val, [Map options]) {
 }
 
 void main() {
+  // short string
   test('100', 100);
   test('1m', 60000);
   test('1h', 3600000);
@@ -22,6 +23,7 @@ void main() {
   test('1.5H', 5400000);
   test('.5ms', .5);
 
+  // long string
   test('53 milliseconds', 53);
   test('17 msecs', 17);
   test('1 sec', 1000);
@@ -30,6 +32,7 @@ void main() {
   test('2 days', 172800000);
   test('1.5 hours', 5400000);
 
+  // numbers with long
   test(500, '500 ms', { 'long': true });
   test(1000, '1 second', { 'long': true });
   test(1200, '1 second', { 'long': true });
@@ -45,6 +48,7 @@ void main() {
   test(24 * 60 * 60 * 10000, '10 days', { 'long': true });
   test(234234234, '3 days', { 'long': true });
 
+  // numbers
   test(500, '500ms');
   test(1000, '1s');
   test(10000, '10s');
