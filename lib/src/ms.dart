@@ -83,10 +83,39 @@ int parse(String val) {
 /**
  * Short format for [ms]
  */
-String short(ms) {
-  if (ms >= d) return (ms / d).round() + 'd';
-  if (ms >= h) return (ms / h).round() + 'h';
-  if (ms >= m) return (ms / m).round() + 'm';
-  if (ms >= s) return (ms / s).round() + 's';
-  return ms + 'ms';
+String short(int ms) {
+  if (ms >= d) return (ms / d).round().toString() + 'd';
+  if (ms >= h) return (ms / h).round().toString() + 'h';
+  if (ms >= m) return (ms / m).round().toString() + 'm';
+  if (ms >= s) return (ms / s).round().toString() + 's';
+  return ms.toString() + 'ms';
+}
+
+
+/**
+ * Long format for [ms]
+ */
+String long(int ms) {
+
+  String s = plural(ms, d, 'day');
+  if (s != '') return s;
+
+  s = plural(ms, h, 'hour');
+  if (s != '') return s;
+
+  s = plural(ms, m, 'minute');
+  if (s != '') return s;
+
+  s = plural(ms, s, 'second');
+  if (s != '') return s;
+
+  return ms.toString() + ' ms';
+}
+
+
+// Pluralize for human readability
+String plural(int ms, n, name) {
+  if (ms < n) return '';
+  if (ms < n * 1.5) return (ms / n).floor().toString() + ' ' + name;
+  return (ms / n).ceil().toString() + ' ' + name + 's';
 }
